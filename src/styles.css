@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.css';
+
+h1, h3, h4 {
+    color: blue;
+}
+
+label {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+input {
+    height: 50px;
+    width: 400px;
+}
+
+div {
+    margin-top: 5px;
+}
+
+.right-aligned {
+    position: relative;
+    left: 300px;
+    margin-top: 20px;
+}
+
+button:focus {
+    outline: none;
+}
+
+td {
+    font-size: 13px;
+}

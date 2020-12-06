@@ -1,0 +1,79 @@
+<div>
+    <h3 class="text-center">News feed form, Part-1</h3>
+    <hr />
+    <form [formGroup]="firstPart">
+        <div class="row">
+            <div class="col-md-2">
+                <label for="title">Title :</label>
+            </div>
+            <div class="col-md-"> 
+                <input type="text" formControlName="title" />
+                <div *ngIf="(title.touched || title.dirty) && title.invalid">
+                    <div *ngIf="title.errors.required" class="aler alert-danger">This is a required filed.</div>
+                    <div *ngIf="title.errors.minlength" class="aler alert-danger">Minimum 10 characters required.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-2">
+                <label for="description">Description :</label>
+            </div>
+            <div class="col-md-"> 
+                <input type="text" formControlName="description" />
+                <div *ngIf="(description.touched || description.dirty) && description.invalid">
+                    <div *ngIf="description.errors.required" class="aler alert-danger">This is a required filed.</div>
+                    <div *ngIf="description.errors.minlength" class="aler alert-danger">Minimum 20 characters required.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <label for="author">Author :</label>
+            </div>
+            <div class="col-md-"> 
+                <input type="text" formControlName="author" />
+                <div *ngIf="(author.touched || author.dirty) && author.invalid">
+                    <div *ngIf="author.errors.required" class="aler alert-danger">This is a required filed.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <label for="category">Category :</label>
+            </div>
+            <div class="col-md-"> 
+                <select name="category" id="category" formControlName="category">
+                    <option>Politics</option>
+                    <option>Sports</option>
+                    <option>Entertainment</option>
+                    <option>National Security</option>
+                    <option>Art & Culture</option>
+                    <option>Trivia</option>
+                    <option>Viral</option>
+                </select>
+            </div>
+        </div>
+        
+    </form>
+    <div *ngIf="!newsId">
+        <a routerLink="/part2" class="right-aligned">
+            <button
+            [disabled]="firstPart.invalid" 
+            class="btn btn-primary" 
+            (click)="handleNews()">Next -></button>
+        </a>
+    </div>
+    <div *ngIf="newsId" >
+        <a [routerLink]="['/editPart2', newsId]" class="right-aligned">
+            <button
+            [disabled]="firstPart.invalid" 
+            class="btn btn-primary" 
+            (click)="handleNews()">Next -></button>
+        </a>
+    </div>
+
+
+</div>

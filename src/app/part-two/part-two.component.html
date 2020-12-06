@@ -1,0 +1,41 @@
+<div>
+    <h3 class="text-center">News feed form, Part-2</h3>
+    <hr />
+    <form [formGroup]="secondPart">
+        <div class="row">
+            <div class="col-md-2">
+                <label for="isBreaking">Is Breaking News? :</label>
+            </div>
+            <div class="col-md-"> 
+                <select name="isBreaking" id="isBreaking" formControlName="isBreaking">
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-2">
+                <label for="comments">Comments :</label>
+            </div>
+            <div class="col-md-"> 
+                <input type="text" formControlName="comments" />
+                <div *ngIf="(comments.touched || comments.dirty) && comments.invalid">
+                    <div *ngIf="comments.errors.required" class="aler alert-danger">This is a required filed.</div>
+                    <div *ngIf="comments.errors.minlength" class="aler alert-danger">Minimum 10 characters required.</div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+    <div>
+        <a routerLink="/newsBoard" class="right-aligned">
+            <button
+            [disabled]="secondPart.invalid" 
+            class="btn btn-primary" 
+            (click)="handleNews()">Publish</button>
+        </a>
+    </div>
+
+
+</div>

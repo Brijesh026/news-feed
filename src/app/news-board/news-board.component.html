@@ -1,0 +1,44 @@
+<div>
+    <h3 class="text-center">News Board</h3>
+    <hr />
+    <div class="text-center">
+        <table class="table table-bordered">
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Is Breaking News?</th>
+                <th>Comments</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let item of localNewsFeed">
+                <td>{{item.id}}</td>
+                <td>{{item.title}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.author}}</td>
+                <td>{{item.category}}</td>
+                <td>{{item.isBreaking}}</td>
+                <td>{{item.comments}}</td>
+                <td><button class="btn btn-primary" (click)="handleEdit(item.id)">Edit</button></td>
+                <td><button class="btn btn-danger" (click)="handleDelete(item)">Delete</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-md-6">
+            <a routerLink="/part1">
+                <button class="btn btn-primary">Add More</button>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a routerLink="/">
+                <button class="btn btn-primary">Home</button>
+            </a>
+        </div>    
+    </div>
+
+</div>
